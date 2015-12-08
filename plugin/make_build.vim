@@ -22,7 +22,9 @@ else:
 print wd
 print sd
 
-print [x[0] for x in os.walk(sd)]
+for dirpath, dirnames, filenames  os.walk(sd):
+    if 'MakeFile' in filenames:
+        print dirpath
 
 print wd
 
