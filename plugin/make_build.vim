@@ -3,7 +3,11 @@ if !has('python')
 endif
 
 function! Make_build()
-    pyfile make_build.py
+python << endPython
+
+print "hello world!!"
+
+endPython
 endfunc
 
 command! MakeBuild call Make_build()
