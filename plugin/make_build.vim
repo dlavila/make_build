@@ -19,6 +19,9 @@ elif levels >= 5:
 else:
     print("MakeBuild can't be called at $HOME level or higher")
 
+print wd
+print sd
+
 print [x[0] for x in os.walk(sd)]
 
 print wd
