@@ -7,8 +7,12 @@ python << endPython
 
 import vim
 
-folders = vim.eval("globpath('.','*')")
+folders = vim.eval("globpath('.','*')").splitlines()
 
+for folder in folders:
+    print "Printing new folder"
+    for dirpath, dirnames, filenames in os.walk(folder):
+        print dirpath, dirnames, filenames
 print folders
 endPython
 endfunc
