@@ -7,7 +7,7 @@ python << endPython
 
 import vim
 
-folders = vim.eval('echo globpath('.','*')')
+folders = vim.eval("echo globpath('.','*')")
 
 print folders
 endPython
