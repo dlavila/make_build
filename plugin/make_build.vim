@@ -2,8 +2,8 @@ if !has('python')
     finish
 endif
 
-function! make_build()
+function! Make_build()
     pyfile make_build.py
 endfunc
 
-command! MakeBuild call MakeBuild()
+command! MakeBuild call Make_build()
