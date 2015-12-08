@@ -32,7 +32,7 @@ if bd != '':
     os.chdir(bd)
 
     
-     p = subprocess.Popen(['make', '-j'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    p = subprocess.Popen(['make', '-j'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     while(True):
        retcode = p.poll()
        line = p.stdout.readline()
