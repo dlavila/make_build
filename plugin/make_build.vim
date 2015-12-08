@@ -2,7 +2,7 @@ if !has('python')
     finish
 endif
 function! Make_build()
-new
+command! -nargs=* -complete=shellcmd R new | setlocal buftype=nofile bufhidden=hide noswapfile | r !<args>
 python << endPython
 
 import vim
@@ -29,20 +29,9 @@ for dirpath, dirnames, filenames in os.walk(sd):
         bd = dirpath
         break
 if bd != '':
-    os.chdir(bd)
-
-    
-    p = subprocess.Popen(['make', '-j'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    while(True):
-       retcode = p.poll()
-       line = p.stdout.readline()
-       print line 
-       vim.current.buffer.append(line)
-       if(retcode is not None):
-           break
+    vim.command('R make -C ' + bd + ' -j')     
 else:
-    print "No Makefile founded in parents dir"
-        
+    print "No Makefile founded in parents dir"    
 endPython
 endfunc
 
