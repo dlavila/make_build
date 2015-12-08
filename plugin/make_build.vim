@@ -7,7 +7,7 @@ python << endPython
 
 import vim
 
-folders = vim.eval("globpath('.','*')").splitlines()
+folders = vim.eval("globpath('.','***')").splitlines()
 
 print folders
 
