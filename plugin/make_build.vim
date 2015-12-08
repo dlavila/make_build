@@ -2,7 +2,7 @@ if !has('python')
     finish
 endif
 function! Make_build()
-split
+new
 python << endPython
 
 import vim
