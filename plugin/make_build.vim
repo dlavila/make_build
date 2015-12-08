@@ -10,7 +10,7 @@ import os
 
 wd = vim.eval("expand('%:p:h')")
 
-[print x[0] for x in os.walk(wd)]
+print [x[0] for x in os.walk(wd)]
 
 print wd
 
