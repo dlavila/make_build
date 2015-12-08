@@ -6,6 +6,7 @@ python << endPython
 
 import vim
 import os
+from subprocess import call
 
 wd = vim.eval("expand('%:p:h')")
 levels = wd.count('/')
@@ -26,8 +27,12 @@ for dirpath, dirnames, filenames in os.walk(sd):
     if 'Makefile' in filenames:
         bd = dirpath
         break
-print bd
-
+if bd != '':
+    os.chdir(bd)
+    call(["make", "-j"])
+else:
+    print "No Makefile founded in parents dir"
+        
 endPython
 endfunc
 
