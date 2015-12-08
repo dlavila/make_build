@@ -5,7 +5,12 @@ endif
 function! Make_build()
 python << endPython
 
-print "hello world!!"
+import vim
+import os
+
+for dirname, dirnames, filenames in os.walk('.'):
+    print dirname, dirnames, filenames
+
 
 endPython
 endfunc
