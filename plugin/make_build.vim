@@ -30,15 +30,16 @@ for dirpath, dirnames, filenames in os.walk(sd):
         break
 if bd != '':
     os.chdir(bd)
-    out = subprocess.call(['make', '-j'])
-    vim.current.buffer.append(out)
-    # p = subprocess.Popen(['make', '-j'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    #while(True):
-    #   retcode = p.poll()
-    #   line = p.stdout.readline()
-    #   vim.current.buffer.append(line)
-    #   if(retcode is not None):
-    #       break
+
+    
+     p = subprocess.Popen(['make', '-j'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    while(True):
+       retcode = p.poll()
+       line = p.stdout.readline()
+       print line 
+       vim.current.buffer.append(line)
+       if(retcode is not None):
+           break
 else:
     print "No Makefile founded in parents dir"
         
