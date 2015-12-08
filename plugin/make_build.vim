@@ -8,8 +8,18 @@ import vim
 import os
 
 wd = vim.eval("expand('%:p:h')")
-wd_par = os.path.abspath(os.path.join(wd, os.pardir))
-print [x[0] for x in os.walk(wd_par)]
+levels = wd.count('/')
+
+if levels == 3:
+    sd = wd
+elif levels == 4:
+    sd = os.path.abspath(os.path.join(wd, '..'))
+elif levels >= 5:
+    sd = os.path.abspath(os.path.join(wd, '../..'))
+else:
+    print("MakeBuild can't be called at $HOME level or higher")
+
+print [x[0] for x in os.walk(sd)]
 
 print wd
 
