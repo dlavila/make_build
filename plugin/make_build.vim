@@ -6,10 +6,13 @@ function! Make_build()
 python << endPython
 
 import vim
+import os
 
-folders = vim.eval("expand('%:p:h')")
+wd = vim.eval("expand('%:p:h')")
 
-print folders
+[print x[0] for x in os.walk(wd)]
+
+print wd
 
 endPython
 endfunc
