@@ -10,19 +10,23 @@ import os
 wd = vim.eval("expand('%:p:h')")
 levels = wd.count('/')
 
-if levels == 3:
+if levels == 4:
     sd = wd
-elif levels == 4:
+elif levels == 5:
     sd = os.path.abspath(os.path.join(wd, '..'))
-elif levels >= 5:
+elif levels >= 6:
     sd = os.path.abspath(os.path.join(wd, '../..'))
 else:
-    print("MakeBuild can't be called at $HOME level or higher")
+    print("MakeBuild can't be called at workspace level or higher")
 
 print sd
+
+bd = ''
 for dirpath, dirnames, filenames in os.walk(sd):
     if 'Makefile' in filenames:
-        print dirpath
+        bd = dirpath
+        break
+print bd
 
 endPython
 endfunc
