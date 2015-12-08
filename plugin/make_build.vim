@@ -19,13 +19,9 @@ elif levels >= 5:
 else:
     print("MakeBuild can't be called at $HOME level or higher")
 
-print wd
-print sd
-
 for dirpath, dirnames, filenames in os.walk(sd):
     if 'MakeFile' in filenames:
         print dirpath
-print wd
 
 endPython
 endfunc
