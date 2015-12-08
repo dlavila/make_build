@@ -6,12 +6,10 @@ function! Make_build()
 python << endPython
 
 import vim
-import os
 
-for dirname, dirnames, filenames in os.walk('.'):
-    print dirname, dirnames, filenames
+folders = vim.eval('echo globpath('.','*')')
 
-
+print folders
 endPython
 endfunc
 
