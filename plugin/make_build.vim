@@ -21,7 +21,7 @@ else:
 
 print sd
 for dirpath, dirnames, filenames in os.walk(sd):
-    if 'MakeFile' in filenames:
+    if 'Makefile' in filenames:
         print dirpath
 
 endPython
